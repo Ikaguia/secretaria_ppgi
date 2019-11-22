@@ -1,0 +1,9 @@
+<% if user_signed_in? and current_user.role == 'administrator' %>
+	<h1>Alterando Informaçao</h1>
+
+	<%= render 'form', informationSource: @informationSource %>
+	<%= link_to 'Mostrar', @informationSource %>
+<% else %>
+	<h1>Você não tem permissão para acessar essa página</h1>
+<% end %>
+<%= link_to 'Voltar', informationSource_index_path %>

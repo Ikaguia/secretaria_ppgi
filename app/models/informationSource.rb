@@ -1,0 +1,2 @@
+class InformationSource < ApplicationRecord
+end

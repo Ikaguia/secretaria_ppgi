@@ -1,0 +1,22 @@
+<%= form_with(model: informationSource, local: true) do |form| %>
+  <% if informationSource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(informationSource.errors.count, "error") %> prohibited this information from being saved:</h2>
+
+      <ul>
+      <% informationSource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

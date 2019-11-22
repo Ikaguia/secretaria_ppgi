@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fontes de Informações</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @informationSource.each do |information| %>
+      <tr>
+        <td><%= informationSource.name %></td>
+        <td><%= link_to 'Ver', informationSource %></td>
+        <% if user_signed_in? and current_user.role == 'administrator' %>
+          <td><%= link_to 'Editar', edit_informationSouce_path(informationSource) %></td>
+          <td><%= link_to 'Destruir', informationSource, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? and current_user.role == 'administrator' %>
+  <%= link_to 'Criar Informação', new_informationSource_path %>
+<% end %>
+
+<%= link_to 'Voltar', home_index_path %>
